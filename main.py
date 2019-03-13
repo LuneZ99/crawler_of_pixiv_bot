@@ -148,7 +148,7 @@ def main():
         # 按tag搜寻:
         elif text.startswith('tag'):
             # tag搜寻帮助
-            if text == 'tag' or text.startswith('tag帮助'):
+            if text == 'tag':
                 output['text'] += '用法：\n1 “tag 标签1 标签2 ……”\n2 tag查询后按序号检索'
             # 列出推荐tag列表
             elif text == 'tag查询':
