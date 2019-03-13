@@ -151,7 +151,7 @@ def main():
             if text == 'tag':
                 output['text'] += '用法：\n1 “tag 标签1 标签2 ……”\n2 tag查询后按序号检索'
             # 列出推荐tag列表
-            elif text == 'tag查询':
+            elif text == 'tag查询' or text == 'tag查找':
                 tags_list = get_tags()
                 for i in range(len(tags_list)):
                     output['text'] += str(i + 1) + ' ' + tags_list[i] + '\n'
