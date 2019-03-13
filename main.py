@@ -94,6 +94,7 @@ def time_limit(interval):
     def wraps(func):
         def time_out():
             raise RuntimeError()
+
         def deco(*args, **kwargs):
             timer = threading.Timer(interval, time_out)  # interval是时限，time_out是达到实现后触发的动作
             timer.start()
@@ -148,12 +149,13 @@ def main():
         elif text.startswith('tag'):
             # tag搜寻帮助
             if text == 'tag' or text.startswith('tag帮助'):
-                output['text'] += '用法：\n1 “tag 标签1 标签2 ……”\n2 tag查询后按序号检索\n'
+                output['text'] += '用法：\n1 “tag 标签1 标签2 ……”\n2 tag查询后按序号检索'
             # 列出推荐tag列表
             elif text == 'tag查询':
                 tags_list = get_tags()
                 for i in range(len(tags_list)):
                     output['text'] += str(i + 1) + ' ' + tags_list[i] + '\n'
+                output['text'] = output['text'][:-1]
             # 直接搜寻tag
             elif text.startswith('tag '):
                 word = text[4:]
